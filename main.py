@@ -74,20 +74,28 @@ def menu_funciones_basicas():
     print("\n--- Funciones básicas ---")
 
     # TODO: descomenta cuando hayas completado calcular_iva
-    # valor = 1_500_000
-    # iva = calcular_iva(valor)
-    # mostrar_resultado("IVA sobre $1,500,000", iva)
+    valor = 1500000
+    iva = calcular_iva(valor)
+    print("El valor del IVA es", iva)
+
+    iva = calcular_iva(valor,0.1)
+    print("El valor del IVA es", iva)
+
+    #mostrar_resultado("IVA sobre $1,500,000", iva)
+   # mostrar_resultado(f"IVA sobre ${valor:,.0f}", iva)
 
     # TODO: descomenta cuando hayas completado formatear_reporte_valor
-    # linea = formatear_reporte_valor("900123456", "Empresa ABC S.A.S.", 1_500_000, "ACTIVO")
-    # print(f"  Reporte: {linea}")
+    #linea = formatear_reporte_valor("900123456", "Empresa ABC S.A.S.", 1_500_000, "ACTIVO")
+   # print(f"  Reporte: {linea}")
+
+
 
     # TODO: descomenta cuando hayas completado generar_ficha_contribuyente
-    # ficha = generar_ficha_contribuyente(
-    #     "900123456", "Empresa ABC S.A.S.", "Bogota", "202401", 1_500_000, "ACTIVO"
-    # )
-    # print(ficha)
-    pass
+    ficha = generar_ficha_contribuyente(
+         "900123456", "Empresa ABC S.A.S.", "Bogota", "202401", 1_500_000, "ACTIVO"
+     )
+    print(ficha)
+    
 
 
 def menu_encadenamiento():
@@ -323,5 +331,12 @@ def main():
             print(f"\n  Opcion '{opcion}' no reconocida. Intenta de nuevo.")
 
 
+
 if __name__ == "__main__":
     main()
+
+#def saludar():
+    print ("Hola como estas")
+
+#if __name__ == "__main__":
+    saludar()

@@ -110,9 +110,14 @@ def calcular_iva(valor_base, tasa=0.19):
     # TODO:
     # 1. Multiplica valor_base por tasa y guarda el resultado en una
     #    variable llamada iva.
+    
     # 2. Retorna iva.
-    pass
+    return valor_base * tasa
+   
+    
+    
 
+    
 
 def formatear_reporte_valor(nit, nombre, valor, estado):
     """
@@ -156,10 +161,16 @@ def mostrar_resultado(etiqueta, valor):
     #    "  {etiqueta}: ${valor:,.0f}"
     #    (el ,.0f formatea el número con separadores de miles y sin decimales)
     # Nota: este es un procedimiento, no retorna nada.
-    pass
+    
+    print(f"{etiqueta}: ${valor:,.0f}")
 
 
 def generar_ficha_contribuyente(nit, nombre, municipio, periodo, valor, estado):
+    nombre_mayusculas = nombre.upper()
+    municipio_mayusculas = municipio.upper()
+    valor_formateado = f"${valor:,}"
+    ficha = f
+
     """
     Genera una ficha formal de contribuyente como texto multilínea.
 
@@ -198,7 +209,9 @@ def generar_ficha_contribuyente(nit, nombre, municipio, periodo, valor, estado):
     #    los caracteres de recuadro y los seis campos.
     #    Usa las variables intermedias del paso 1, 2 y 3.
     # 5. Retorna ficha.
-    pass
+    
+    return generar_ficha_contribuyente
+
 
 
 # ---------------------------------------------------------------------------
