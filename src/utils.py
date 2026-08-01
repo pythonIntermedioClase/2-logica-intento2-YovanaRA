@@ -114,11 +114,6 @@ def calcular_iva(valor_base, tasa=0.19):
     # 2. Retorna iva.
     return valor_base * tasa
    
-    
-    
-
-    
-
 def formatear_reporte_valor(nit, nombre, valor, estado):
     """
     Genera una línea de reporte con los campos principales de una declaración.
@@ -142,7 +137,9 @@ def formatear_reporte_valor(nit, nombre, valor, estado):
     #    (el :, dentro del f-string agrega separadores de miles al número)
     # 2. Guarda el resultado en una variable llamada linea.
     # 3. Retorna linea.
-    pass
+    
+    linea= f"NIT {nit} │ {nombre} │ ${valor:,.0f} │ {estado}"
+    return linea
 
 
 def mostrar_resultado(etiqueta, valor):
@@ -162,16 +159,14 @@ def mostrar_resultado(etiqueta, valor):
     #    (el ,.0f formatea el número con separadores de miles y sin decimales)
     # Nota: este es un procedimiento, no retorna nada.
     
-    print(f"{etiqueta}: ${valor:,.0f}")
+    print(f"{etiqueta} : ${valor:,.0f}")
 
 
 def generar_ficha_contribuyente(nit, nombre, municipio, periodo, valor, estado):
     nombre_mayusculas = nombre.upper()
     municipio_mayusculas = municipio.upper()
     valor_formateado = f"${valor:,}"
-    ficha = f
-
-    """
+    ficha = f"""
     Genera una ficha formal de contribuyente como texto multilínea.
 
     Recibe seis parámetros escalares y retorna una cadena con formato
@@ -200,6 +195,7 @@ def generar_ficha_contribuyente(nit, nombre, municipio, periodo, valor, estado):
           Estado     : ACTIVO
         ╚══════════════════════════════════════╝
     """
+
     # TODO:
     # 1. Convierte nombre a mayúsculas con .upper() y guárdalo en
     #    una variable llamada nombre_mayusculas.
@@ -210,9 +206,25 @@ def generar_ficha_contribuyente(nit, nombre, municipio, periodo, valor, estado):
     #    Usa las variables intermedias del paso 1, 2 y 3.
     # 5. Retorna ficha.
     
-    return generar_ficha_contribuyente
 
+    nombre_mayusculas = nombre.upper()
+    municipio_mayusculas = municipio.upper()
+    valor_formateado = f"${valor:,}"
+    ficha = f"""
+        ╔══════════════════════════════════════╗
+        ║  FICHA DE CONTRIBUYENTE              ║
+        ╠══════════════════════════════════════╣
+            NIT        : {nit}
+            Nombre     : {nombre_mayusculas}
+            Municipio  : {municipio_mayusculas}
+            Periodo    : {periodo}
+            Valor      : {valor_formateado}
+            Estado     : {estado}
+        ╚══════════════════════════════════════╝
+"""
+    return ficha
 
+#nota: se usa triple comilla se usa para hacer cadenas multilínea
 
 # ---------------------------------------------------------------------------
 # ENCADENAMIENTO DE FUNCIONES
@@ -232,7 +244,7 @@ def limpiar_nit(nit):
         limpiar_nit("900-123-456")  -> "900123456"
         limpiar_nit("900.123.456")  -> "900123456"
         limpiar_nit("900123456")    -> "900123456"
-    """
+"""
     # TODO:
     # 1. Elimina los guiones del nit con .replace("-", "") y guarda el
     #    resultado en una variable llamada sin_guiones.
