@@ -251,8 +251,12 @@ def limpiar_nit(nit):
     # 2. Elimina los puntos de sin_guiones con .replace(".", "") y guarda
     #    el resultado en una variable llamada sin_puntos.
     # 3. Retorna sin_puntos.
-    pass
 
+    #Elimina guiones y puntos de un NIT.
+
+    sin_guiones = nit.replace("-", "")
+    sin_puntos = sin_guiones.replace(".", "")
+    return sin_puntos
 
 def validar_nit(nit):
     """
@@ -280,8 +284,20 @@ def validar_nit(nit):
     # 3. Verifica que la longitud sea válida:
     #    longitud_valida = len(nit_limpio) >= 9 and len(nit_limpio) <= 10
     # 4. Retorna solo_digitos and longitud_valida.
-    pass
+    
+    nit_limpio = limpiar_nit(nit)
+    solo_digitos = nit_limpio.isdigit()
+    longitud_valida = len(nit_limpio) >= 9 and len(nit_limpio) <= 10
+    return solo_digitos and longitud_valida
 
+def procesar_nit(nit):
+    nit_limpio = limpiar_nit(nit)      # paso 1: limpiar
+    es_valido = validar_nit(nit_limpio) # paso 2: validar
+    if es_valido:
+        mensaje = f"NIT {nit_limpio}: válido"
+    else:
+        mensaje = f"NIT {nit}: INVÁLIDO"
+    return mensaje
 
 def normalizar_texto(texto):
     """
@@ -383,7 +399,11 @@ def esta_al_dia(dias_mora):
     # 1. Escribe un if/else:
     #    - si dias_mora == 0: retorna True
     #    - de lo contrario: retorna False
-    pass
+    
+    if dias_mora == 0:
+        return True
+    else:
+        return False
 
 
 def aplicar_descuento(valor, pago_voluntario):
